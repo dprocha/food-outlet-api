@@ -1,5 +1,5 @@
 
-# ** Food Outlet API Documentation**
+# Food Outlet API Documentation
 
 ## **Overview**
 This API provides an endpoint to fetch the total sales for a restaurant based on its ID from a SQL Server database.
@@ -49,7 +49,7 @@ curl -X GET http://localhost:8080/restaurants/1/sales
 
 ---
 
-# **Setup and Run the Microsoft SQL Server on Docker**
+# **Running Microsoft SQL Server on Docker**
 
 ## **Step 1: Creating Docker Network**
 
