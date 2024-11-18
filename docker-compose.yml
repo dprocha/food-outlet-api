@@ -23,11 +23,20 @@ services:
     container_name: food-outlet-api
     depends_on:
       - sqlserver
+    labels:
+      com.datadoghp.tags: '[{"env": "dev", "service": "food-outlet-api", "version": "1.0"}]'
     environment:
       DATABASE_HOST: sqlserver
       DATABASE_PORT: 1433
       DATABASE_NAME: FoodOutlet
       DATABASE_USER: sa
       DATABASE_PASSWORD: Datadog2024!
+      DD_SERVICE: food-outlet-api
+      DD_ENV: dev
+      DD_VERSION: 1.0
+      DD_TRACE_ENABLED: true
+      DD_LOGS_INJECTION: true
+      DD_AGENT_HOST: "datadog-agent"
+      DD_TRACE_AGENT_PORT: "8126"
     ports:
-      - "8080:5000"
+    - "8080:5000"

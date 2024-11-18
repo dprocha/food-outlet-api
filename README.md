@@ -198,6 +198,24 @@ docker logs food-outlet-api
 
 ---
 
+# Running Python App without Docker with Datadog Trace embedded
+
+ ```bash
+   DD_SERVICE=food-outlet-api DD_ENV=dev DD_VERSION=0.1.0 DD_LOGS_INJECTION=true ddtrace-run python3 app.py
+```
+
+# Install Datadog Agent on Docker host same host
+ ```bash
+   docker run -d -v /var/run/docker.sock:/var/run/docker.sock:ro \
+          -v /proc/:/host/proc/:ro \
+          -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+          -p 127.0.0.1:8126:8126/tcp \
+          -e DD_API_KEY=<YOUR_API_KEY> \
+          -e DD_SITE="us5.datadoghq.com" \
+          datadog/agent:latest
+```
+
+
 # **Notes**
 - Make sure your SQL Server instance is running and accessible from the container.
 - If using a remote database, update the `DATABASE_HOST` in the `.env` file accordingly.

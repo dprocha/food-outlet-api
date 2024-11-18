@@ -31,5 +31,12 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=development
 
-# Run the application
-CMD ["flask", "run"]
+# Enable Datadog tracing for the application
+# ENV DD_SERVICE=food-outlet-api-docker
+# ENV DD_ENV=development
+# ENV DD_VERSION=1.0.0
+# ENV DD_TRACE_ENABLED=true
+# ENV DD_LOGS_INJECTION=true
+
+# Run the Flask application with ddtrace
+CMD ["ddtrace-run", "flask", "run"]
