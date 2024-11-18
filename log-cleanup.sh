@@ -1,1 +1,1 @@
-find /Users/diegorocha/development/workspace/food-outlet-api/access.log* -mtime +7 -exec rm {} \;
+find /Users/diegorocha/development/workspace/food-outlet-api/app.log* -mtime +7 -exec rm {} \;
